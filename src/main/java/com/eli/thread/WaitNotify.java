@@ -12,7 +12,7 @@ import java.util.Date;
     5）从wait()方法返回的前提是获得了调用对象的锁
  */
 public class WaitNotify {
-    static boolean flag = true; // 这里没有用volatile修饰，flag会有一定的延迟可见
+    static volatile boolean flag = true;
     static Object lock = new Object();
 
     public static void main(String[] args) {
@@ -41,8 +41,10 @@ public class WaitNotify {
                 }
 
                 // 条件满足时，完成工作
-                System.out.println(Thread.currentThread() + " flag is false. running @ "
-                        + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                if(!flag) {
+                    System.out.println(Thread.currentThread() + " flag is false. running @ "
+                            + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                }
             }
         }
     }
