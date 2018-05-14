@@ -5,9 +5,6 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-/**
- * Created by elizhou on 2018/5/14.
- */
 public class Cache {
     static Map<String, Object> map = new HashMap<>();
     static ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
@@ -44,4 +41,5 @@ public class Cache {
             writeLock.unlock();
         }
     }
+
 }
