@@ -2,8 +2,9 @@ package com.eli.atomic;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-/**
- * Created by elizhou on 2018/5/15.
+/*
+数组value通过构造方法传递进去，然后AtomicIntegerArray会将当前数组复制一份，
+所以当AtomicIntegerArray对内部的数组元素进行修改时，不会影响传入的数组。
  */
 public class AtomicIntegerArrayTest {
 
